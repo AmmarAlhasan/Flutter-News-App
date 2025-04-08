@@ -109,3 +109,23 @@ ResponsiveConfig dynamically adjusts layout based on screen size
 ✅ Search articles in real time
 
 ✅ Layout adapts across emulators with different screen sizes
+
+
+
+
+
+Implementation Approach
+
+The project follows a modular and scalable architecture, aiming for clean separation of concerns:
+
+Authentication is handled through a dedicated LoginService, which interacts with FirebaseAuth. This abstraction simplifies the login/signup logic and allows easy testing and future extensibility.
+
+State management is implemented using GetX, allowing reactive UI updates and clean separation between UI, logic, and navigation. Controllers are scoped per screen to ensure minimal coupling.
+
+API integration uses an HTTP client to fetch articles from NewsAPI. Models are defined for parsing the JSON response, and error handling is done to ensure graceful UI fallback.
+
+UI components like CustomField and PasswordField are reused across screens for consistency. Layout adapts fluidly using a custom ResponsiveConfig class that ensures padding and sizing adjust based on screen dimensions.
+
+Search functionality is implemented within the controller layer to filter articles in real time as the user types.
+
+Folder structure is organized by feature, keeping logic modular and easy to navigate.
